@@ -91,6 +91,8 @@ about-fxm-headline = Tsa ña { -product-name }
 how-fxm-works = Nixi sachuin { -product-name }
 how-fxm-1-headline = A kunu ndukuku ña'a
 how-fxm-2-headline = Ntachaa takua kuncheu ana nche'e korreoku
+wtd-after-website = Ntyi sau tatu skuinana página web
+what-is-data-agg = ¿Ntyi ku agregador de datos?
 
 ## What to do after data breach tips
 
@@ -105,6 +107,14 @@ send-verification = Tachu'un tu'un
 # email address.
 breach-summary = Tutu filtración
 remove-fxm = Xita { -product-name }
+new-breaches-found =
+    { $breachCount ->
+        [one] { $breachCount } FILTRACIÓN TSAA
+       *[other] { $breachCount }  FILTRACIÓN TSAA
+    }
+sign-up-headline-1 = Kunchee tsi { -brand-fxa }.
+all-breaches-headline = Ntii filtracion nu { -product-name }
+search-breaches = Nduku filtración
 # "Appears in-page as: Showing: All Breaches"
 currently-showing = Sna'a:
 
@@ -147,6 +157,10 @@ sign-in-nested = Kitsaa
 # This string is a label for the calendar date a breach is added to the database
 # and is followed by that date. 
 breach-added-label = Filtración añadida:
+# This message appears after a user has successfully updated their communication settings.
+changes-saved = ¡Inka vai!
+# Section headline
+rec-section-headline = Ntyi sau tsi filtración
 
 ## This string contains nested markup that becomes a link later in the code.
 ## Please do not modify or remove "<a>" and "</a>".

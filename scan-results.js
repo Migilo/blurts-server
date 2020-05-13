@@ -4,7 +4,6 @@ const { URL } = require("url");
 
 const HIBP = require("./hibp");
 const sha1 = require("./sha1-utils");
-
 const { getExperimentBranch } = require("./controllers/utils");
 
 const AppConstants = require("./app-constants");
@@ -22,6 +21,7 @@ const scanResult = async(req, selfScan=false) => {
   if (EXPERIMENTS_ENABLED) {
     const coinFlipNumber = Math.floor(Math.random() * 100);
     experimentBranch = getExperimentBranch(req, coinFlipNumber);
+    if (!experimentBranch) { req.session.excludeFromExperiment = true; }
     req.session.experimentBranch = experimentBranch;
     isUserInExperiment = (experimentBranch === "vb");
     experimentBranchB = (experimentBranch === "vb" && isUserInExperiment);
@@ -36,7 +36,6 @@ const scanResult = async(req, selfScan=false) => {
   let fullReport = false;
   let userDash = false;
   let scannedEmailId = null;
-
 
   if (req.session.user) {
     signedInUser = req.session.user;

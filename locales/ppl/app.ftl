@@ -227,6 +227,32 @@ remove-fxm-blurb =
     seuk tanujnutzalis ipal cuentaj.
 # Button title
 manage-email-addresses = Shiktajpia ne dijdirección ipal correoj
+# Link title
+latest-breach-link = Shikita asu tinenki tik ini kaltapanalis
+welcome-back = Yek tiwalajtuk uksenpa { $userName }!
+welcome-user = Yek tiwalajtuk { $userName }!
+breach-alert-subject = { -product-name } kiajsik mucorreoj tik se kaltapanalis yankwik dajdatoj
+your-info-was-discovered-headline = Muajsik muinformación tik se yankwik kaltapanalis datoj
+your-info-was-discovered-blurb =
+    { -product-name } metzilwia
+     keman mucorreoj muajsi tik se kaltapanalis datoj. Nikan tiweli tikmati ipanpa ini kaltapanalis.
+what-to-do-after-breach = Tay weli tikchiwa kan mukaltapana mudatoj
+ba-next-step-1 = Shikpata mutaketzalis ichtaka iwan seuk ukchupi tajpaltik wan te kenha seuk.
+ba-next-step-blurb-1 =
+    Se taketzalis tajpaltik kikwi lejletraj wey wan chikitik,
+    caracter especial, wan tapual. Te kipia intatka mupanpa ken
+    mudirección, keman tinesik nan intujtukay mumiakwan.
+ba-next-step-2 = Makaya shikwi ne taketzalis ichtaka muneshtijkia.
+ba-next-step-blurb-2 =
+    Ne teyek takamet tik ne Matapan kiajsiskiat mutaketzalis ichtaka tik ne matapan kunyua wan kikwiskia
+    pal kalaki tik sejseuk cuentaj mupal. Shikwi sanse taketzalis ichtaka pal sejse mucuentaj
+    wan ijkiuni tiktajpia ukchupi yek.
+ba-next-step-3 = Shiktajtani ma metzpalewi tikchiwa ukchupi yek taketzalis ichtaka wan tiktajpia
+ba-next-step-blurb-3 =
+    Shikwi se tajpiani taketzalis ichtaka pal tikchiwa taketzalis ichtaka tajpaltik wan te kenha ken seuk. Ne tajpianimet taketzalis ichtaka tajpia kiana muchi
+    mukalakilis pal tiweli tikalaki yek tik muchi muaparatoj
+faq1 = Naja te nikishmati ini compañiaj u sitioj Matapan. Taika ninemi tik ini kaltapanalis?
+faq2 = Taika teutakik nechilwia ipanpa ini kaltapanalis?
 
 ## Updated error messages
 
