@@ -192,6 +192,7 @@ appears-in-x-breaches =
     }
 check-for-breaches = İhlalleri kontrol et
 find-out-what-hackers-know = Hacker’ların sizin hakkınızda neler bildiklerini öğrenin, onların bir adım önüne geçin.
+get-email-alerts = Güvende kalın: Bilgileriniz yeni bir ihlalde yer alırsa e-posta uyarıları alın
 search-for-your-email = 2007’ye uzanan bilindik veri ihlallerinde e-posta adresinizi arayın.
 back-to-top = Başa dön
 comm-opt-0 = Aşağıdaki e-posta adreslerimden birisi bir veri ihlalinde tespit edilirse bana e-posta gönder.
@@ -264,6 +265,7 @@ error-bot-blurb = Kısa süre içerisinde çok fazla e-posta adresi sorguladığ
 error-csrf-headline = Oturum zaman aşımına uğradı
 error-csrf-blurb = Tarayıcınızın geri düğmesine tıklayın, sayfayı tazeleyin ve tekrar deneyin.
 error-invalid-unsub = { -product-name } uyarılarından ayrılma
+error-invalid-unsub-blurb = Abonelikten çıkmak için size gönderilen { -product-name } e-postalarından birini kullanmalısınız. Gelen kutunuzda { -brand-team-email } tarafından gönderilen iletilerden birini bulup e-postanın altındaki abonelikten çıkma bağlantısına tıklayın.
 # This string is displayed under a large numeral that indicates the total number
 # of email address a user has signed up for monitoring. Don’t add $emails to
 # your localization, because it would result in the number showing twice.
@@ -446,11 +448,19 @@ progress-complete = Bilinen tüm ihlaller çözüldü olarak işaretlendi
 ## These strings contain nested markup that is later used to style the text inside of it.
 ## Please do not modify or remove "<span>" and "</span>".
 
+progress-message-3 = <span>Bu ihlalleri çözmede iyi iş çıkardınız!</span> Böyle devam edin. Birkaç tane daha var.
+progress-message-4 = <span>Neredeyse bitti!</span> Bitiş çizgisine yakınsınız.
 
 ##
 
 resolve-this-breach-link = Bu ihlali çöz
+# This string appears in resolved breach cards and is followed by 
+# the date the user marked the breach as resolved.
+marked-resolved = Çözüldü olarak işaretlendi:
 hide-resolved-button = Çözülenleri gizle
 show-resolved-button = Çözülenleri göster
 # A status indicator that appears in the top right corner of new breach cards
 new-breach = Yeni
+mobile-promo-cta = Android ve iOS için { -brand-name } uygulamasını indirin
+promo-lockwise-headline = Parolalarınızı yanınızda taşıyın
+promo-ecosystem-cta = Tüm ürünleri görün

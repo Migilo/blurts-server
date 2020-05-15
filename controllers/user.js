@@ -16,7 +16,6 @@ const EXPERIMENTS_ENABLED = (AppConstants.EXPERIMENT_ACTIVE === "1");
 
 const FXA_MONITOR_SCOPE = "https://identity.mozilla.com/apps/monitor";
 
-
 async function removeEmail(req, res) {
   const emailId = req.body.emailId;
   const sessionUser = req.user;
@@ -231,18 +230,6 @@ async function getDashboard(req, res) {
   const allBreaches = req.app.locals.breaches;
   const { verifiedEmails, unverifiedEmails } = await getAllEmailsAndBreaches(user, allBreaches);
 
-  let experimentBranch = null;
-  let isUserInExperiment = null;
-  let experimentBranchB = null;
-
-  if (EXPERIMENTS_ENABLED && req.session.experimentBranch) {
-    if (!req.session.excludeFromExperiment) {
-      experimentBranch = req.session.experimentBranch;
-      isUserInExperiment = (experimentBranch === "vb");
-      experimentBranchB = (experimentBranch === "vb" && isUserInExperiment);
-    }
-  }
-
   let lastAddedEmail = null;
 
   req.session.user = await DB.setBreachesLastShownNow(user);
@@ -258,9 +245,6 @@ async function getDashboard(req, res) {
     verifiedEmails,
     unverifiedEmails,
     whichPartial: "dashboards/breaches-dash",
-    experimentBranch,
-    isUserInExperiment,
-    experimentBranchB,
   });
 }
 
@@ -559,16 +543,23 @@ async function getBreachStats(req, res) {
   const allBreaches = req.app.locals.breaches;
   const { verifiedEmails } = await getAllEmailsAndBreaches(user, allBreaches);
   const breachStats = resultsSummary(verifiedEmails);
-  return res.json({
+  const baseStats = {
     monitoredEmails: breachStats.monitoredEmails.count,
     numBreaches: breachStats.numBreaches.count,
     passwords: breachStats.passwords.count,
-  });
+  };
+  const resolvedStats = {
+    numBreachesResolved: breachStats.numBreaches.numResolved,
+    passwordsResolved: breachStats.passwords.numResolved,
+  };
+  const returnStats = (req.query.includeResolved === "true") ? Object.assign(baseStats, resolvedStats) : baseStats;
+  return res.json(returnStats);
   }
 
 
 function logout(req, res) {
-  if (AppConstants.EXPERIMENT_ACTIVE) {
+  // Growth Experiment
+  if (EXPERIMENTS_ENABLED) {
     // Persist experimentBranch across session reset
     const excludeFromExperiment = req.session.excludeFromExperiment;
     const experimentBranch = req.session.experimentBranch;

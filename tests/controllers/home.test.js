@@ -12,9 +12,13 @@ function mockRequestSessionReset(mockRequest) {
     excludeFromExperiment: false,
     experimentBranch: false,
   };
+
+  mockRequest.headers = {
+    "accept-language": "en",
+  };
+
   return mockRequest;
 }
-
 
 function addBreachesToMockRequest(mockRequest) {
   const mockBreaches = [
@@ -72,17 +76,25 @@ test("notFound set status 404 and renders 404", () => {
 });
 
 test("Experiment 3 Cohort Assignment Unit Test", () => {
+
+  // Resets session and language after each test
+  mockRequestSessionReset(mockRequest);
+
+  // Set accept-language headers to German for first test.
   mockRequest.headers = {
-    "accept-language": "en",
+    "accept-language": "de",
   };
 
-  mockRequest.session = {
-    excludeFromExperiment: false,
-  };
+// The session is excluded from the experiment because the set language is German.
+  let experimentBranch = getExperimentBranch(mockRequest, false, "en");
+  expect(experimentBranch).toBeFalsy();
+
+  mockRequestSessionReset(mockRequest);
 
   // The session is assigned to the control group when the coin flip is 0;
   let experimentNumber = 0;
-  let experimentBranch = getExperimentBranch(mockRequest, experimentNumber);
+
+  experimentBranch = getExperimentBranch(mockRequest, experimentNumber);
   expect(experimentBranch).toBe("va");
 
   mockRequestSessionReset(mockRequest);
@@ -98,6 +110,8 @@ test("Experiment 3 Cohort Assignment Unit Test", () => {
   experimentNumber = 30;
   experimentBranch = getExperimentBranch(mockRequest, experimentNumber);
   expect(experimentBranch).toBe("vb");
+
+  mockRequestSessionReset(mockRequest);
 
   // The session is assigned to the treatment group when the coin flip is 59;
   experimentNumber = 59;
